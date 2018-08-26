@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jarrell.springboot.jdbc.dao.UserDao">
+    <!--<resultMap id="userMapping" type="com.jarrell.springboot.jdbc.vo.UserVO">-->
+        <!--<id column="id" property="id"></id>-->
+        <!--<result column="name" property="name"></result>-->
+    <!--</resultMap>-->
+
+    <!--
+      UserVO getUserById(Integer id);
+
+    int insertUser(UserVO user);
+
+    int deleteUser(Integer id);
+
+    List<UserVO> getAllUser();
+    -->
+    <select id="getUserById" resultType="com.jarrell.springboot.jdbc.vo.UserVO">
+        select * from user where id = #{id};
+    </select>
+
+    <select id="getAllUser" resultType="com.jarrell.springboot.jdbc.vo.UserVO">
+        select * from user;
+    </select>
+
+    <insert id="insertUser" >
+        insert user(
+          name
+        )values(
+          #{name}
+        );
+    </insert>
+
+    <delete id="deleteUser" >
+        delete from user where id = #{id};
+    </delete>
+
+</mapper>
